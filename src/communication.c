@@ -125,6 +125,11 @@ void handle_mavlink_message(mavlink_channel_t chan,
 	/* handling messages */
 	switch (msg->msgid)
 	{
+		case MAVLINK_MSG_ID_SONAR_INTERRUPT:
+		{
+			// handle sonar interrupt
+		}
+		break;
 		case MAVLINK_MSG_ID_PARAM_REQUEST_READ:
 		{
 			mavlink_param_request_read_t set;
@@ -455,4 +460,3 @@ mavlink_message_t* mavlink_get_channel_buffer(uint8_t channel)
 	static mavlink_message_t m_mavlink_buffer[MAVLINK_COMM_NUM_BUFFERS];
 	return &m_mavlink_buffer[channel];
 }
-
